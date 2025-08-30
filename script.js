@@ -263,6 +263,47 @@ function createRipple(event) {
     }, 600);
 }
 
+
+
+// Navigation functions
+function toggleHamburger() {
+    const menu = document.getElementById('hamburgerMenu');
+    menu.classList.toggle('open');
+}
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+        
+        // Close hamburger menu if open
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        if (hamburgerMenu && hamburgerMenu.classList.contains('open')) {
+            hamburgerMenu.classList.remove('open');
+        }
+    });
+});
+
+// Close hamburger when clicking outside
+document.addEventListener('click', function(e) {
+    const menu = document.getElementById('hamburgerMenu');
+    const btn = document.querySelector('.hamburger-btn');
+    
+    if (menu && menu.classList.contains('open') && 
+        !menu.contains(e.target) && 
+        !btn.contains(e.target)) {
+        menu.classList.remove('open');
+    }
+});
+
+// Keyboard support for calculator
 document.addEventListener('keydown', function(event) {
     const key = event.key;
     
@@ -277,6 +318,13 @@ document.addEventListener('keydown', function(event) {
     } else if (key === 'Backspace') {
         deleteLast();
     }
+});
+
+// Contact form handling
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for your message! We\'ll get back to you soon.');
+    this.reset();
 });
 
 updateDisplay();

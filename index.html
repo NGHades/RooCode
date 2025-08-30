@@ -7,6 +7,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Desktop Navigation: Spiral Notebook Sidebar -->
+    <nav class="desktop-nav">
+        <div class="spiral-binding"></div>
+        <div class="desktop-tabs">
+            <a href="#calculator-section" class="desktop-tab">Calculator</a>
+            <a href="#reading-section" class="desktop-tab">Related Reading</a>
+            <a href="#help-section" class="desktop-tab">What We Can Do</a>
+            <a href="#contact-section" class="desktop-tab">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation: Bottom Tab Bar -->
+    <nav class="mobile-nav">
+        <a href="#calculator-section" class="mobile-tab">
+            <div class="mobile-icon pencil-icon"></div>
+            <div class="mobile-label">Calculator</div>
+        </a>
+        <a href="#reading-section" class="mobile-tab">
+            <div class="mobile-icon pen-icon"></div>
+            <div class="mobile-label">Reading</div>
+        </a>
+        <a href="#help-section" class="mobile-tab">
+            <div class="mobile-icon eraser-icon"></div>
+            <div class="mobile-label">Help</div>
+        </a>
+        <a href="#contact-section" class="mobile-tab">
+            <div class="mobile-icon ruler-icon"></div>
+            <div class="mobile-label">Contact</div>
+        </a>
+    </nav>
+
+    <!-- Tablet Navigation: Hamburger Menu -->
+    <nav class="hamburger-nav">
+        <button class="hamburger-btn" onclick="toggleHamburger()">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <a href="#calculator-section" class="hamburger-item">Calculator</a>
+            <a href="#reading-section" class="hamburger-item">Related Reading</a>
+            <a href="#help-section" class="hamburger-item">What We Can Do</a>
+            <a href="#contact-section" class="hamburger-item">Contact Us</a>
+        </div>
+    </nav>
+
+
     <!-- Floating money symbols -->
     <div class="floating-money" style="top: 10%; left: 10%; animation-delay: 0s;">💰</div>
     <div class="floating-money" style="top: 20%; right: 15%; animation-delay: 1s;">💵</div>
@@ -22,191 +69,222 @@
     <div class="floating-item" style="top: 25%; right: 40%; animation-delay: 9s;">💸</div>
     <div class="floating-item" style="top: 75%; left: 70%; animation-delay: 10s;">💵</div>
 
-    <!-- Floating Sidebar -->
-    <div class="sidebar">
-        <!--<a href="#board" class="sidebar-btn">Board</a>-->
-        <a href="#calculator-section" class="sidebar-btn">Calculator</a>
-        <a href="#reading-section" class="sidebar-btn">Reading</a>
-        <a href="#help-section" class="sidebar-btn">Help</a>
-        <a href="#contact-section" class="sidebar-btn">Contact Us</a>
-    </div>
 
     <div class="container">
-        <div class="header">
-            <h1 class="postit-tape postit-yellow postit-left-animated">Put wealth into perspective with real-world comparisons</h1>
-        </div>
-
-        <div class="fun-facts">
-            <h3 class="postit-note postit-green postit-left-animated">1 McDonald's franchise = 225,000 rubber duckies</h3>
-            <h3 class="postit-note postit-green postit-right-animated">1 Minnesota house = 175 million Skittles</h3>
-            <h3 class="postit-note postit-green postit-left-animated">1 Charizard card = 5 million Lego bricks</h3>
-        </div><br><br><br><br>
-
-        <div class="postit-container">
-            <h1 class="postit-tape postit-pink postit-right-animated" style="justify-content: center"> Enter Amount to Compare</h2>
-        </div>
-
-        <!-- Row: calculator on the left, weaslth display on the right -->
-        <div class="calculator-row">
-            <div class="calculator" style="flex:0 1 auto;">
-                <div class="solar-panel"></div>
-                <div class="display seven-segment" id="display">0</div>
-                <div class="buttons">
-                    <button class="btn clear" onclick="clearDisplay()">C</button>
-                    <button class="btn operator" onclick="appendToDisplay('/')" data-op="÷">÷</button>
-                    <button class="btn operator" onclick="appendToDisplay('*')" data-op="×">×</button>
-                    <button class="btn operator" onclick="deleteLast()">⌫</button>
-                    
-                    <button class="btn" onclick="appendToDisplay('7')">7</button>
-                    <button class="btn" onclick="appendToDisplay('8')">8</button>
-                    <button class="btn" onclick="appendToDisplay('9')">9</button>
-                    <button class="btn operator" onclick="appendToDisplay('-')">-</button>
-                    
-                    <button class="btn" onclick="appendToDisplay('4')">4</button>
-                    <button class="btn" onclick="appendToDisplay('5')">5</button>
-                    <button class="btn" onclick="appendToDisplay('6')">6</button>
-                    <button class="btn operator" onclick="appendToDisplay('+')">+</button>
-                    
-                    <button class="btn" onclick="appendToDisplay('1')">1</button>
-                    <button class="btn" onclick="appendToDisplay('2')">2</button>
-                    <button class="btn" onclick="appendToDisplay('3')">3</button>
-                    <button class="btn equals" onclick="calculate()" rowspan="2">=</button>
-                    
-                    <button class="btn zero" onclick="appendToDisplay('0')">0</button>
-                    <button class="btn" onclick="appendToDisplay('.')">.</button>
-                </div>
+        <!-- Calculator Section -->
+        <section id="calculator-section" class="section">
+            <div class="header">
+                <h1 class="postit-tape postit-yellow postit-left-animated">Put wealth into perspective with real-world comparisons</h1>
             </div>
 
-            <div class="wealth-display" id="wealthDisplay">
-                <div class="wealth-header" id="wealthHeader">WEALTH METER</div>
-                <div class="wealth-content" id="wealthContent">
-                    <div class="waiting-message">Press "=" to see what your money can buy!</div>
-                </div>
-            </div>
-        </div>
+            <div class="fun-facts">
+                <h3 class="postit-note postit-green postit-left-animated">1 McDonald's franchise = 225,000 rubber duckies</h3>
+                <h3 class="postit-note postit-green postit-right-animated">1 Minnesota house = 175 million Skittles</h3>
+                <h3 class="postit-note postit-green postit-left-animated">1 Charizard card = 5 million Lego bricks</h3>
+            </div><br><br><br><br>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        
-
-
-        <div class="articles-section wooden-board">
-            <h1 class="postit-note postit-pink postit-left-animated">Related Reading</h1><br><br>
-
-            <div class="articles-grid">
-                <!-- One Article Card -->
-                <div class="article-card">
-                    <a href="https://www.oxfamamerica.org/explore/stories/how-are-billionaire-and-corporate-power-intensifying-global-inequality/?utm_source=chatgpt.com" target="_blank">
-                        <!-- Article Source -->
-                        <div class="article-source">
-                            <img src="img/articles/oxfam-logo.jpg" alt="Oxfam Logo">
-                            Oxfam
-                        </div>
-                    
-                        <!-- Article Image -->
-                        <div class="article-image">
-                            <img src="img/articles/tax-the-rich.jpg" alt="Image of a woman with a tax the rich sign">
-                        </div>
-                    
-                        <!-- Title & Summary -->
-                        <h3>How are billionaire and corporate power intensifying global inequality?</h3>
-                        <p>This Oxfam article explores how billionaire wealth is built and why it worsens inequality worldwide.</p>
-                    
-                        <!-- Meta Info -->
-                        <div class="article-meta">
-                            <span class="article-topic">Wealth</span>
-                            <span class="article-read-time">5 min read</span>
-                        </div>
-                    </a>
-                </div>
-                <!-- How the Richest People in America Avoid Paying Taxes -->
-                <div class="article-card">
-                    <a href="https://www.theatlantic.com/economy/archive/2025/08/billionaire-tax-study/683987/?utm_source=chatgpt.com" target="_blank">
-                        <!-- Article Source -->
-                        <div class="article-source">
-                            <img src="img/articles/the-atlantic-logo.JPG" alt="The Atlantic Logo">
-                            The Atlantic
-                        </div>
-                    
-                        <!-- Article Image -->
-                        <div class="article-image">
-                            <img src="img/articles/how-rich-people-avoid-paying-taxes.jpeg" alt="How the Richest People in America Avoid Paying Taxes">
-                        </div>
-                    
-                        <!-- Title & Summary -->
-                        <h3>How the Richest People in America Avoid Paying Taxes</h3>
-                        <p>This article explores the various strategies employed by the wealthiest individuals in the U.S. to minimize their tax liabilities.</p>
-                    
-                        <!-- Meta Info -->
-                        <div class="article-meta">
-                            <span class="article-topic">Wealth</span>
-                            <span class="article-read-time">5 min read</span>
-                        </div>
-                    </a>
-                </div>
+            <div class="postit-container">
+                <h1 class="postit-tape postit-pink postit-right-animated" style="justify-content: center"> Enter Amount to Compare</h1>
             </div>
 
-            <br><br><br><br><br>
-
-            <h1 class="postit-note postit-yellow postit-left-animated">What can we do to help?</h1><br><br>
-            <div class="articles-grid">
-                <div class="article-card">
-                    <a href="https://www.vox.com/policy/459500/ubi-cash-transfers-rct-research-income-rent-welfare-aid" target="_blank">
-                        <!-- Article Source -->
-                        <div class="article-source">
-                            <img src="img/articles/vox-logo.jpg" alt="Vox Logo">
-                            Vox
-                        </div>
-                    
-                        <!-- Article Image -->
-                        <div class="article-image">
-                            <img src="img/articles/evolving-fight.jpg" alt="The Evolving Fight Over Giving People Cash, Explained">
-                        </div>
-                    
-                        <!-- Title & Summary -->
-                        <h3>The Evolving Fight Over Giving People Cash, Explained</h3>
-                        <p>This article explores the various strategies employed by the wealthiest individuals in the U.S. to minimize their tax liabilities.</p>
-                    
-                        <!-- Meta Info -->
-                        <div class="article-meta">
-                            <span class="article-topic">Wealth</span>
-                            <span class="article-read-time">5 min read</span>
-                        </div>
-                    </a>
+            <!-- Row: calculator on the left, wealth display on the right -->
+            <div class="calculator-row">
+                <div class="calculator" style="flex:0 1 auto;">
+                    <div class="solar-panel"></div>
+                    <div class="display seven-segment" id="display">0</div>
+                    <div class="buttons">
+                        <button class="btn clear" onclick="clearDisplay()">C</button>
+                        <button class="btn operator" onclick="appendToDisplay('/')" data-op="÷">÷</button>
+                        <button class="btn operator" onclick="appendToDisplay('*')" data-op="×">×</button>
+                        <button class="btn operator" onclick="deleteLast()">⌫</button>
+                        
+                        <button class="btn" onclick="appendToDisplay('7')">7</button>
+                        <button class="btn" onclick="appendToDisplay('8')">8</button>
+                        <button class="btn" onclick="appendToDisplay('9')">9</button>
+                        <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+                        
+                        <button class="btn" onclick="appendToDisplay('4')">4</button>
+                        <button class="btn" onclick="appendToDisplay('5')">5</button>
+                        <button class="btn" onclick="appendToDisplay('6')">6</button>
+                        <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+                        
+                        <button class="btn" onclick="appendToDisplay('1')">1</button>
+                        <button class="btn" onclick="appendToDisplay('2')">2</button>
+                        <button class="btn" onclick="appendToDisplay('3')">3</button>
+                        <button class="btn equals" onclick="calculate()" rowspan="2">=</button>
+                        
+                        <button class="btn zero" onclick="appendToDisplay('0')">0</button>
+                        <button class="btn" onclick="appendToDisplay('.')">.</button>
+                    </div>
                 </div>
 
-                <div class="article-card">
-                    <a href="https://www.thesun.co.uk/money/36469164/hard-up-households-boost-their-income/" target="_blank">
-                        <!-- Article Source -->
-                        <div class="article-source">
-                            <img src="img/articles/the-sun-logo.jpg" alt="The Sun Logo">
-                            The Sun
-                        </div>
-                    
-                        <!-- Article Image -->
-                        <div class="article-image">
-                            <img src="img/articles/boost-income.jpeg" alt="Hard up households could boost their income by thousands of pounds each year through debt help scheme">
-                        </div>
-                    
-                        <!-- Title & Summary -->
-                        <h3>Hard up households could boost their income by thousands of pounds each year through debt help scheme</h3>
-                        <p>This article explores the various strategies employed by the wealthiest individuals in the U.S. to minimize their tax liabilities.</p>
-                    
-                        <!-- Meta Info -->
-                        <div class="article-meta">
-                            <span class="article-topic">Wealth</span>
-                            <span class="article-read-time">5 min read</span>
-                        </div>
-                    </a>
+                <div class="wealth-display" id="wealthDisplay">
+                    <div class="wealth-header" id="wealthHeader">WEALTH METER</div>
+                    <div class="wealth-content" id="wealthContent">
+                        <div class="waiting-message">Press "=" to see what your money can buy!</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
+        <!-- Related Reading Section -->
+        <section id="reading-section" class="section">
+            <div class="articles-section wooden-board">
+                <h1 class="postit-note postit-pink postit-left-animated">Related Reading</h1><br><br>
+
+                <div class="articles-grid">
+                    <!-- One Article Card -->
+                    <div class="article-card">
+                        <a href="https://www.oxfamamerica.org/explore/stories/how-are-billionaire-and-corporate-power-intensifying-global-inequality/?utm_source=chatgpt.com" target="_blank">
+                            <!-- Article Source -->
+                            <div class="article-source">
+                                <img src="img/articles/oxfam-logo.jpg" alt="Oxfam Logo">
+                                Oxfam
+                            </div>
+                        
+                            <!-- Article Image -->
+                            <div class="article-image">
+                                <img src="img/articles/tax-the-rich.jpg" alt="Image of a woman with a tax the rich sign">
+                            </div>
+                        
+                            <!-- Title & Summary -->
+                            <h3>How are billionaire and corporate power intensifying global inequality?</h3>
+                            <p>This Oxfam article explores how billionaire wealth is built and why it worsens inequality worldwide.</p>
+                        
+                            <!-- Meta Info -->
+                            <div class="article-meta">
+                                <span class="article-topic">Wealth</span>
+                                <span class="article-read-time">5 min read</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- How the Richest People in America Avoid Paying Taxes -->
+                    <div class="article-card">
+                        <a href="https://www.theatlantic.com/economy/archive/2025/08/billionaire-tax-study/683987/?utm_source=chatgpt.com" target="_blank">
+                            <!-- Article Source -->
+                            <div class="article-source">
+                                <img src="img/articles/the-atlantic-logo.JPG" alt="The Atlantic Logo">
+                                The Atlantic
+                            </div>
+                        
+                            <!-- Article Image -->
+                            <div class="article-image">
+                                <img src="img/articles/how-rich-people-avoid-paying-taxes.jpeg" alt="How the Richest People in America Avoid Paying Taxes">
+                            </div>
+                        
+                            <!-- Title & Summary -->
+                            <h3>How the Richest People in America Avoid Paying Taxes</h3>
+                            <p>This article explores the various strategies employed by the wealthiest individuals in the U.S. to minimize their tax liabilities.</p>
+                        
+                            <!-- Meta Info -->
+                            <div class="article-meta">
+                                <span class="article-topic">Wealth</span>
+                                <span class="article-read-time">5 min read</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Can Do Section -->
+        <section id="help-section" class="section">
+            <div class="articles-section wooden-board">
+                <h1 class="postit-note postit-yellow postit-left-animated">What can we do to help?</h1><br><br>
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <a href="https://www.vox.com/policy/459500/ubi-cash-transfers-rct-research-income-rent-welfare-aid" target="_blank">
+                            <!-- Article Source -->
+                            <div class="article-source">
+                                <img src="img/articles/vox-logo.jpg" alt="Vox Logo">
+                                Vox
+                            </div>
+                        
+                            <!-- Article Image -->
+                            <div class="article-image">
+                                <img src="img/articles/evolving-fight.jpg" alt="The Evolving Fight Over Giving People Cash, Explained">
+                            </div>
+                        
+                            <!-- Title & Summary -->
+                            <h3>The Evolving Fight Over Giving People Cash, Explained</h3>
+                            <p>This article explores the various strategies employed by the wealthiest individuals in the U.S. to minimize their tax liabilities.</p>
+                        
+                            <!-- Meta Info -->
+                            <div class="article-meta">
+                                <span class="article-topic">Wealth</span>
+                                <span class="article-read-time">5 min read</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="article-card">
+                        <a href="https://www.thesun.co.uk/money/36469164/hard-up-households-boost-their-income/" target="_blank">
+                            <!-- Article Source -->
+                            <div class="article-source">
+                                <img src="img/articles/the-sun-logo.jpg" alt="The Sun Logo">
+                                The Sun
+                            </div>
+                        
+                            <!-- Article Image -->
+                            <div class="article-image">
+                                <img src="img/articles/boost-income.jpeg" alt="Hard up households could boost their income by thousands of pounds each year through debt help scheme">
+                            </div>
+                        
+                            <!-- Title & Summary -->
+                            <h3>Hard up households could boost their income by thousands of pounds each year through debt help scheme</h3>
+                            <p>This article explores the various strategies employed by the wealthiest individuals in the U.S. to minimize their tax liabilities.</p>
+                        
+                            <!-- Meta Info -->
+                            <div class="article-meta">
+                                <span class="article-topic">Wealth</span>
+                                <span class="article-read-time">5 min read</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="article-card">
+                        <a href="https://www.thesun.co.uk/money/36469164/hard-up-households-boost-their-income/" target="_blank">
+                            <!-- Article Source -->
+                            <div class="article-source">
+                                <img src="img/articles/the-sun-logo.jpg" alt="The Sun Logo">
+                                The Sun
+                            </div>
+                        
+                            <!-- Article Image -->
+                            <div class="article-image">
+                                <img src="img/articles/boost-income.jpeg" alt="Hard up households could boost their income by thousands of pounds each year through debt help scheme">
+                            </div>
+                        
+                            <!-- Title & Summary -->
+                            <h3>Hard up households could boost their income by thousands of pounds each year through debt help scheme</h3>
+                            <p>This article explores the various strategies employed by the wealthiest individuals in the U.S. to minimize their tax liabilities.</p>
+                        
+                            <!-- Meta Info -->
+                            <div class="article-meta">
+                                <span class="article-topic">Wealth</span>
+                                <span class="article-read-time">5 min read</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact-section" class="section">
+            <div class="contact-section">
+                <h1 class="postit-note postit-blue postit-left-animated">Contact Us</h1>
+                <p>Have questions about wealth inequality or want to share your thoughts? We'd love to hear from you!</p>
+                
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject">
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
     </div>
 
     <script src="script.js"></script>
