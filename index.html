@@ -22,11 +22,18 @@
     <div class="floating-item" style="top: 25%; right: 40%; animation-delay: 9s;">🍟</div>
     <div class="floating-item" style="top: 75%; left: 70%; animation-delay: 10s;">🔥</div>
 
+    <!-- Floating Sidebar -->
+    <div class="sidebar">
+        <!--<a href="#board" class="sidebar-btn">Board</a>-->
+        <a href="#calculator-section" class="sidebar-btn">Calculator</a>
+        <a href="#reading-section" class="sidebar-btn">Reading</a>
+        <a href="#help-section" class="sidebar-btn">Help</a>
+        <a href="#contact-section" class="sidebar-btn">Contact Us</a>
+    </div>
+
     <div class="container">
         <div class="header">
-            <h1>Put wealth into perspective with real-world comparisons</h1>
-            <!-- <p class="subtitle">From individual Skittles to McDonald's franchises - see what your money can really buy!</p> -->
-            <h1 class="postit-note">From individual Skittles to McDonald's franchises - see what your money can really buy!</h1>
+            <h1 class="postit-tape postit-yellow postit-left">Put wealth into perspective with real-world comparisons</h1>
 
         </div>
 
@@ -45,124 +52,143 @@
             </div>
         </div>
 
-        <div class="articles-section">
-            <h2>Related Reading</h2>
+        
+        <!-- Row: calculator on the left, wealth display on the right -->
+        <div class="calculator-row">
+            <div class="calculator" style="flex:0 1 auto;">
+                <div class="solar-panel"></div>
+                <div class="display seven-segment" id="display">0</div>
+                <div class="buttons">
+                    <button class="btn clear" onclick="clearDisplay()">C</button>
+                    <button class="btn operator" onclick="appendToDisplay('/')" data-op="÷">÷</button>
+                    <button class="btn operator" onclick="appendToDisplay('*')" data-op="×">×</button>
+                    <button class="btn operator" onclick="deleteLast()">⌫</button>
+                    
+                    <button class="btn" onclick="appendToDisplay('7')">7</button>
+                    <button class="btn" onclick="appendToDisplay('8')">8</button>
+                    <button class="btn" onclick="appendToDisplay('9')">9</button>
+                    <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+                    
+                    <button class="btn" onclick="appendToDisplay('4')">4</button>
+                    <button class="btn" onclick="appendToDisplay('5')">5</button>
+                    <button class="btn" onclick="appendToDisplay('6')">6</button>
+                    <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+                    
+                    <button class="btn" onclick="appendToDisplay('1')">1</button>
+                    <button class="btn" onclick="appendToDisplay('2')">2</button>
+                    <button class="btn" onclick="appendToDisplay('3')">3</button>
+                    <button class="btn equals" onclick="calculate()" rowspan="2">=</button>
+                    
+                    <button class="btn zero" onclick="appendToDisplay('0')">0</button>
+                    <button class="btn" onclick="appendToDisplay('.')">.</button>
+                </div>
+            </div>
+
+            <div class="wealth-display" id="wealthDisplay">
+                <div class="wealth-header" id="wealthHeader">WEALTH METER</div>
+                <div class="wealth-content" id="wealthContent">
+                    <div class="waiting-message">Press "=" to see what your money can buy!</div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+
+
+        <div class="articles-section wooden-board">
+            <h1 class="postit-note postit-pink postit-left">Related Reading</h1><br><br>
+
             <div class="articles-grid">
                 <!-- One Article Card -->
                 <div class="article-card">
-                    <a href="https://www.oxfamamerica.org/explore/stories/top-5-ways-billionaires-are-bad-for-the-economy/" target="_blank">
+                    <a href="https://www.oxfamamerica.org/explore/stories/how-are-billionaire-and-corporate-power-intensifying-global-inequality/?utm_source=chatgpt.com" target="_blank">
+                        <!-- Article Source -->
+                        <div class="article-source">
+                            <img src="img/articles/oxfam-logo.jpg" alt="Oxfam Logo">
+                            Oxfam
+                        </div>
                     
-                    <!-- Article Source -->
-                    <div class="article-source">
-                        <img src="img/oxfam-logo.png" alt="Oxfam Logo">
-                        Oxfam
-                    </div>
-                
-                    <!-- Article Image -->
-                    <div class="article-image">
-                        <img src="img/oxfam-article.jpg" alt="Billionaires and the Economy">
-                    </div>
-                
-                    <!-- Title & Summary -->
-                    <h3>Top 5 Ways Billionaires are Bad for the Economy</h3>
-                    <p>This Oxfam article explores how billionaire wealth is built and why it worsens inequality worldwide.</p>
-                
-                    <!-- Meta Info -->
-                    <div class="article-meta">
-                        <span class="article-topic">Wealth</span>
-                        <span class="article-read-time">5 min read</span>
-                    </div>
-                
+                        <!-- Article Image -->
+                        <div class="article-image">
+                            <img src="img/articles/tax-the-rich.jpg" alt="Image of a woman with a tax the rich sign">
+                        </div>
+                    
+                        <!-- Title & Summary -->
+                        <h3>How are billionaire and corporate power intensifying global inequality?</h3>
+                        <p>This Oxfam article explores how billionaire wealth is built and why it worsens inequality worldwide.</p>
+                    
+                        <!-- Meta Info -->
+                        <div class="article-meta">
+                            <span class="article-topic">Wealth</span>
+                            <span class="article-read-time">5 min read</span>
+                        </div>
                     </a>
                 </div>
-  
-                <article class="article-card">
-                    <div class="article-source">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23d4af37'/><text x='50' y='60' font-family='serif' font-size='40' text-anchor='middle' fill='white'>WSJ</text></svg>" alt="Wall Street Journal">
-                        The Wall Street Journal
-                    </div>
-                    <div class="article-image">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23f0f0f0'/><circle cx='150' cy='100' r='50' fill='%23d4af37'/><text x='150' y='110' font-family='serif' font-size='16' text-anchor='middle' fill='white'>Tax Chart</text></svg>" alt="Tax Analysis">
-                    </div>
-                    <h3>The Tax that Billionaires Actually Pay</h3>
-                    <p>An in-depth analysis of effective tax rates for ultra-high-net-worth individuals and the reality behind wealth taxation.</p>
-                    <div class="article-meta">
-                        <span class="article-topic">Tax Policy</span>
-                        <span class="article-read-time">5 min read</span>
-                    </div>
-                </article>
-                
-                <article class="article-card">
-                    <div class="article-source">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ff6b6b'/><text x='50' y='60' font-family='sans-serif' font-size='30' text-anchor='middle' fill='white'>VOX</text></svg>" alt="Vox">
-                        Vox
-                    </div>
-                    <div class="article-image">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23f0f0f0'/><rect x='50' y='80' width='200' height='40' fill='%23ff6b6b'/><text x='150' y='105' font-family='sans-serif' font-size='14' text-anchor='middle' fill='white'>Cash Transfer</text></svg>" alt="Cash Transfer">
-                    </div>
-                    <h3>The Evolving Fight Over Giving People Cash, Explained</h3>
-                    <p>How direct cash transfers and universal basic income programs are reshaping economic policy debates worldwide.</p>
-                    <div class="article-meta">
-                        <span class="article-topic">Economic Policy</span>
-                        <span class="article-read-time">7 min read</span>
-                    </div>
-                </article>
-                
-                <article class="article-card">
-                    <div class="article-source">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ff8c00'/><text x='50' y='60' font-family='sans-serif' font-size='20' text-anchor='middle' fill='white'>BI</text></svg>" alt="Business Insider">
-                        Business Insider
-                    </div>
-                    <div class="article-image">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23f0f0f0'/><rect x='100' y='60' width='100' height='80' fill='%23ff8c00'/><text x='150' y='110' font-family='sans-serif' font-size='14' text-anchor='middle' fill='white'>Kenya Map</text></svg>" alt="Kenya UBI">
-                    </div>
-                    <h3>Universal Basic Income in Kenya</h3>
-                    <p>Examining the real-world impact of UBI programs in developing economies and their effects on poverty reduction.</p>
-                    <div class="article-meta">
-                        <span class="article-topic">Development</span>
-                        <span class="article-read-time">6 min read</span>
-                    </div>
-                </article>
-                
-                <article class="article-card">
-                    <div class="article-source">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ff6b6b'/><text x='50' y='60' font-family='sans-serif' font-size='30' text-anchor='middle' fill='white'>VOX</text></svg>" alt="Vox">
-                        Vox
-                    </div>
-                    <div class="article-image">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23f0f0f0'/><polygon points='150,60 200,140 100,140' fill='%23ff6b6b'/><text x='150' y='130' font-family='sans-serif' font-size='14' text-anchor='middle' fill='white'>Policy Chart</text></svg>" alt="Policy Analysis">
-                    </div>
-                    <h3>Critique of Means Testing</h3>
-                    <p>Why means-tested programs often fail to reach those who need them most, and alternatives that work better.</p>
-                    <div class="article-meta">
-                        <span class="article-topic">Social Policy</span>
-                        <span class="article-read-time">4 min read</span>
-                    </div>
-                </article>
+                <!-- How the Richest People in America Avoid Paying Taxes -->
+                <div class="article-card">
+                    <a href="https://www.theatlantic.com/economy/archive/2025/08/billionaire-tax-study/683987/?utm_source=chatgpt.com" target="_blank">
+                        <!-- Article Source -->
+                        <div class="article-source">
+                            <img src="img/articles/the-atlantic-logo.JPG" alt="The Atlantic Logo">
+                            The Atlantic
+                        </div>
+                    
+                        <!-- Article Image -->
+                        <div class="article-image">
+                            <img src="img/articles/how-rich-people-avoid-paying-taxes.jpeg" alt="How the Richest People in America Avoid Paying Taxes">
+                        </div>
+                    
+                        <!-- Title & Summary -->
+                        <h3>How the Richest People in America Avoid Paying Taxes</h3>
+                        <p>This article explores the various strategies employed by the wealthiest individuals in the U.S. to minimize their tax liabilities.</p>
+                    
+                        <!-- Meta Info -->
+                        <div class="article-meta">
+                            <span class="article-topic">Wealth</span>
+                            <span class="article-read-time">5 min read</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <br><br><br><br><br>
+
+            <h1 class="postit-note postit-yellow postit-left">What can we do to help?</h1><br><br>
+            <div class="articles-grid">
+                <div class="article-card">
+                    <a href="https://www.vox.com/policy/459500/ubi-cash-transfers-rct-research-income-rent-welfare-aid" target="_blank">
+                        <!-- Article Source -->
+                        <div class="article-source">
+                            <img src="img/articles/vox-logo.jpg" alt="Vox Logo">
+                            Vox
+                        </div>
+                    
+                        <!-- Article Image -->
+                        <div class="article-image">
+                            <img src="img/articles/evolving-fight.jpg" alt="The Evolving Fight Over Giving People Cash, Explained">
+                        </div>
+                    
+                        <!-- Title & Summary -->
+                        <h3>The Evolving Fight Over Giving People Cash, Explained</h3>
+                        <p>This article explores the various strategies employed by the wealthiest individuals in the U.S. to minimize their tax liabilities.</p>
+                    
+                        <!-- Meta Info -->
+                        <div class="article-meta">
+                            <span class="article-topic">Wealth</span>
+                            <span class="article-read-time">5 min read</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="calculator-section">
-            <div class="amount-display">
-                <div class="dollar-amount" id="dollarAmount">$1,000,000</div>
-            </div>
-            
-            <div class="slider-container">
-                <input type="range" min="30" max="110" value="60" step="1" class="slider" id="wealthSlider">
-            </div>
-            
-            <button class="calculate-btn" id="calculateBtn">
-                Calculate Wealth Comparisons
-            </button>
-        </div>
-
-        <div class="results-section" id="resultsSection">
-            <div class="loading" id="loadingText">
-                <div class="spinner"></div>
-                Analyzing wealth distribution patterns...
-            </div>
-            <div id="comparisons"></div>
-        </div>
     </div>
 
     <script src="script.js"></script>

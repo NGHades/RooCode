@@ -22,6 +22,61 @@ body {
     position: relative;
 }
 
+/* Styles for the floating sidebar */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-btn {
+    background-color: transparent;
+    background-image: url('img/stamp.jpg'); /* Use the image as a background */
+    background-size: 100% 100%; /* Stretch the image to fill the button */
+    background-repeat: no-repeat;
+    border: none;
+    color: #ef4444; /* Red text */
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-family: 'Epunda Slab', serif;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 0 0 5px #ef4444;
+}
+
+.sidebar-btn:hover {
+    background-color: transparent; /* Keep background transparent */
+    color: black; /* White text on hover for better contrast */
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for placeholder content sections */
+.content-section {
+    height: 100vh; /* Make sections large to allow scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 90%;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
 .floating-money {
     position: absolute;
     font-size: 30px;
@@ -87,239 +142,350 @@ h1 {
     font-weight: 400;
 }
 
-.calculator-section {
-    background: rgba(245, 245, 220, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 40px;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(245, 245, 220, 0.2);
-    animation: slideUp 1s ease-out 0.3s both;
+.calculator-row {
+  display: flex;
+  align-items: flex-start; /* makes both children match height */
+  gap: 1rem;
+  padding: 20px;
 }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
+
+.calculator {
+    flex: 0 0 350 px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #e53935, #c62828);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 2px 5px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.amount-display {
-    text-align: center;
-    margin-bottom: 30px;
+.calculator::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 30px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
 }
 
-.dollar-amount {
-    font-size: 3rem;
-    font-weight: 600;
-    color: #2c3e50;
-    text-shadow: none;
-    transition: all 0.3s ease;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.calculator::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    width: 15px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
 }
 
-.slider-container {
-    margin-bottom: 30px;
-    position: relative;
-}
-
-.slider {
-    width: 100%;
-    height: 6px;
-    border-radius: 3px;
-    background: rgba(44, 62, 80, 0.2);
-    outline: none;
-    -webkit-appearance: none;
-    transition: all 0.3s ease;
-}
-
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #3498db, #2980b9);
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-}
-
-.slider::-webkit-slider-thumb:hover {
-    transform: scale(1.1);
-}
-
-.slider::-moz-range-thumb {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #3498db, #2980b9);
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.calculate-btn {
-    display: block;
-    width: 220px;
-    margin: 0 auto;
-    padding: 16px 32px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: white;
-    background: linear-gradient(45deg, #3498db, #2980b9);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+.solar-panel {
+    background: linear-gradient(145deg, #555, #333);
+    height: 15px;
+    margin: 10px 0 15px;
+    border-radius: 5px;
     position: relative;
     overflow: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.calculate-btn::before {
+.solar-panel::after {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 8px,
+        rgba(0, 0, 0, 0.3) 8px,
+        rgba(0, 0, 0, 0.3) 9px
+    );
 }
 
-.calculate-btn:hover::before {
-    left: 100%;
+.display {
+    background: #000;
+    color: #ffd700;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: right;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 3px solid #2a2a2a;
+    box-shadow: 
+        inset 0 3px 6px rgba(0, 0, 0, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Courier New', monospace;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px #ffe75dff, 0 0 20px #f7eba7ff
+    overflow: hidden;
 }
 
-.calculate-btn:hover {
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    background: linear-gradient(145deg, #ffcdd2, #ef9a9a);
+    border: none;
+    border-radius: 15px;
+    padding: 22px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #b71c1c;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
-    background: linear-gradient(45deg, #2980b9, #1f5f8b);
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.calculate-btn:active {
-    transform: translateY(0);
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: 
+        0 2px 6px rgba(0, 0, 0, 0.3),
+        inset 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-.results-section {
-    background: rgba(245, 245, 220, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(245, 245, 220, 0.2);
-    min-height: 200px;
+.btn:active::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.operator {
+    background: linear-gradient(145deg, #d32f2f, #b71c1c);
+    color: white;
+}
+
+.operator:hover {
+    background: linear-gradient(145deg, #c62828, #a00000);
+}
+
+.equals {
+    background: linear-gradient(145deg, #66bb6a, #4caf50);
+    color: white;
+}
+
+.equals:hover {
+    background: linear-gradient(145deg, #5cb85c, #449d48);
+}
+
+.clear {
+    background: linear-gradient(145deg, #ef5350, #f44336);
+    color: white;
+}
+
+.clear:hover {
+    background: linear-gradient(145deg, #e53935, #d32f2f);
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+/* Wealth Display Styles */
+.wealth-display {
+    flex: 1;
+    background: linear-gradient(145deg, #a6b6cfff, #f3e8e8ff);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 2px 5px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     opacity: 0;
-    transform: translateY(30px);
+    transform: scale(0.8);
     transition: all 0.5s ease;
 }
 
-.results-section.show {
+.wealth-display.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
 }
 
-.comparison {
+.wealth-display::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 25px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+}
+
+.wealth-header {
+    background: #000;
+    color: #ffd700;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 8px #ffd700;
+}
+
+.wealth-content {
+    flex: 1;
+    background: rgba(245, 230, 210, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid rgba(210, 180, 140, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 8px;
-    border: 1px solid rgba(107, 173, 216, 0.788);
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: slideInRight 0.5s ease forwards;
-    min-height: 120px;
-}
-
-@keyframes slideInRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.comparison:hover {
-    background: rgba(245, 245, 220, 0.9);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.comparison-text {
-    flex: 1;
-    font-size: 1rem;
-    font-weight: 600;
     text-align: center;
-    margin-bottom: 10px;
-    color: #2c3e50;
-}
-
-.emoji-display {
-    font-size: 1.5rem;
-    line-height: 1.2;
-    text-align: center;
-    max-width: 300px;
+    position: relative;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.comparison-emoji {
-    display: none;
+.item-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.pulse {
-    animation: pulse 0.5s ease;
+.item-quantity {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.emoji-showcase {
+    font-size: 3rem;
+    line-height: 1.1;
+    max-width: auto;
+    max-height: 300px;
+    overflow: auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Custom Scrollbar Styles (for WebKit browsers like Chrome/Safari) */
+.emoji-showcase::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.emoji-showcase::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.emoji-showcase::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.emoji-showcase::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.loading-wealth {
+    color: #ffd700;
+    font-size: 1.1rem;
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
-.loading {
-    text-align: center;
-    font-size: 1.2rem;
-    opacity: 0.8;
-    color: #2c3e50;
+.waiting-message {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    font-style: italic;
 }
 
-.spinner {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(44, 62, 80, 0.3);
+.ripple {
+    position: absolute;
     border-radius: 50%;
-    border-top-color: #3498db;
-    animation: spin 1s ease-in-out infinite;
-    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
-.comparison.big-ticket {
-    background: rgba(52, 152, 219, 0.1);
-    border: 2px solid rgba(52, 152, 219, 0.3);
-    box-shadow: 0 0 20px rgba(52, 152, 219, 0.2);
+@media (max-width: 768px) {
+    .calulator-row {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .calculator{
+        width: 90%;
+        max-width: 350px;
+        height: auto;
+    }
 }
-
-.comparison.big-ticket:hover {
-    background: rgba(52, 152, 219, 0.15);
-    box-shadow: 0 0 30px rgba(52, 152, 219, 0.3);
-}
-
-.comparison.big-ticket .comparison-text {
-    color: #2980b9;
-    font-weight: 700;
-}
-
 .fun-facts {
     display: flex;
     justify-content: space-around;
@@ -360,8 +526,89 @@ h1 {
     text-shadow: none;
 }
 
+.wooden-board {
+    background: 
+        /* Subtle highlights for grain */
+        repeating-linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.02),
+            rgba(255, 255, 255, 0.02) 1px,
+            transparent 1px,
+            transparent 15px
+        ),
+        /* Darker base grain */
+        repeating-linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.02),
+            rgba(0, 0, 0, 0.02) 1px,
+            transparent 1px,
+            transparent 15px
+        ),
+        /* Vertical wood planks */
+        linear-gradient(
+            90deg,
+            #a07f5f 0%,
+            #8c6e52 10%,
+            #a07f5f 20%,
+            #8c6e52 30%,
+            #a07f5f 40%,
+            #8c6e52 50%,
+            #a07f5f 60%,
+            #8c6e52 70%,
+            #a07f5f 80%,
+            #8c6e52 90%,
+            #a07f5f 100%
+        );
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 1200px;
+    border: 10px solid #d3d3d3;
+}
+
+/* Optional: a heading to place on the board */
+.wooden-board h2 {
+    text-align: center;
+    color: #fff8dcff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.article-card {
+    background: #ffffffff; /* paper color */
+    border-radius: 6px;
+    padding: 20px;
+    border: 1px solid #e0d9c1ff;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card a {
+    text-decoration: none;
+}
+
+/* Add "tape" to top of paper */
+.article-card::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 60px;
+    height: 20px;
+    background: rgba(224, 214, 187, 0.7); /* tape color */
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
 .articles-section {
-    background: rgba(245, 245, 220, 0.95);
     backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 40px;
@@ -387,7 +634,7 @@ h1 {
 }
 
 .article-card {
-    background: rgba(245, 245, 220, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     padding: 25px;
     border: 1px solid rgba(189, 195, 199, 0.3);
@@ -511,29 +758,70 @@ h1 {
 }
 
 .postit-note {
-    background: #fff8a6;               /* classic yellow Post-it color */
-    padding: 20px 30px;
-    border: 1px solid #e0d97c;         /* subtle border */
-    border-radius: 4px;
-    box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.2); /* shadow for "lifted" effect */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    display: inline-block;
-    transform: rotate(-1.5deg);        /* slight tilt to look casual */
-    position: relative;
-  }
-  
-  /* optional "tape" at the top */
-  .postit-note::before {
-    content: "";
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    width: 60px;
-    height: 20px;
-    background: rgba(173, 216, 230, 0.6); /* translucent light blue tape */
-    border-radius: 3px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  }
+  padding: 20px 30px;
+  border-radius: 4px;
+  box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  display: inline-block;
+  transform: rotate(-1.5deg);
+  position: relative;
+  font-weight: bold;
+}
+
+/* Variations */
+.postit-yellow { background: #fff8a6; border: 1px solid #e0d97c; }
+.postit-pink   { background: #ffd1dc; border: 1px solid #e6a9b2; }
+.postit-blue   { background: #cce7ff; border: 1px solid #99cfff; }
+.postit-green  { background: #d7f7c1; border: 1px solid #a7dca0; }
+
+
+/* Direction */
+.postit-right { transform: rotate(5.5deg); }
+.postit-left { transform: rotate(-5.5deg); }
+
+
+/* Push pin instead of tape */
+.postit-note::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at 30% 30%, #e74c3c, #c0392b); /* red pin with shading */
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4); /* pin shadow */
+  z-index: 2;
+}
+
+/* little "needle" below pin */
+.postit-note::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 12px;
+  background: #666; /* needle color */
+  z-index: 1;
+}
+
+/* Tape effect for Post-it notes */
+.postit-tape::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 60px;
+  height: 20px;
+  background: rgba(173, 216, 230, 0.6); /* translucent blue tape */
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
   
