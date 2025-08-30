@@ -3,6 +3,8 @@
 ## Overview
 This website is an interactive educational tool designed to help users understand the scale and impact of wealth, from everyday amounts to billionaire fortunes. It uses playful metaphors, calculators, and curated reading to make complex financial concepts accessible and engaging.
 
+This project is a submission for RooCode's Hackathon.
+
 ## Features
 - **Wealth Calculator:** Visualize what different amounts of money can buy, from small purchases to large investments.
 - **Levels of Wealth Video:** Embedded explainer video to illustrate wealth distribution and its societal effects.
