@@ -133,6 +133,7 @@ h1 {
     background: #ffffff;
 }
 
+
 .subtitle {
     font-size: 1.3rem;
     opacity: 0.9;
@@ -757,6 +758,29 @@ h1 {
     }
 }
 
+@keyframes slideAndRotateRight {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) rotate(0deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(5.5deg);
+    }
+}
+
+/* Keyframes for the leftward animation */
+@keyframes slideAndRotateLeft {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) rotate(0deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(-5.5deg);
+    }
+}
+
 .postit-note {
   padding: 20px 30px;
   border-radius: 4px;
@@ -764,9 +788,17 @@ h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   display: inline-block;
-  transform: rotate(-1.5deg);
   position: relative;
   font-weight: bold;
+  text-align: center;
+}
+
+.postit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 /* Variations */
@@ -777,8 +809,13 @@ h1 {
 
 
 /* Direction */
-.postit-right { transform: rotate(5.5deg); }
-.postit-left { transform: rotate(-5.5deg); }
+.postit-right-animated {
+    animation: slideAndRotateRight 1s ease-out forwards;
+}
+
+.postit-left-animated {
+    animation: slideAndRotateLeft 1s ease-out forwards;
+}
 
 
 /* Push pin instead of tape */
